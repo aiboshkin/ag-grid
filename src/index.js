@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BASE_URL } from './constants';
+
+import './index.css';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+const client = new ApolloClient({
+    uri: BASE_URL,
+    cache: new InMemoryCache(),
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
