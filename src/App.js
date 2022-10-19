@@ -5,6 +5,8 @@ import { AgGridReact } from 'ag-grid-react';
 import { GET_SHIPPING_MARK } from './query/shippingMark';
 import { GROUP_ID } from './constants';
 
+console.log('QWERTY');
+
 function App() {
     const [rowData, setRowData] = useState();
 
